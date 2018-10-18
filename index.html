@@ -74,7 +74,7 @@
 
         document.onkeyup = function(event) {
             console.log(event);
-            userGuess.innerHTML = event.key;
+            userGuess.innerHTML += event.key;
         };
 
          document.addEventListener('onkeyup', myFunction);
