@@ -21,75 +21,64 @@
             </div> <!-- end of left container -->
             <div class="rightContainer">
                 <h2>The Tragically Hip Word Guess Game</h2>
+                <h5 id="callToAction">Press any key to get started!</h5>
             </div> <!-- end of right container -->
         </div> <!-- end of container div -->
     </div> <!-- end of header div -->
 
     <div class="body">
         <div class="gameContainer">
-            <p>Press any key to get started!</p>
-            <div class="wordGuess">
-                <div class="topContent">
-                    <p>Number of Guesses Remaining:<span id="remain-guess"></span></p>
-                    <p>Wins:<span id="winsNo"></span></p>
-                </div> <!-- end top content -->
-                <div class="bottomContent">
-                    <p>Letters Already Guessed:<span id="all-guesses"></span></p>
-                    <p>Current Word:<span id="current-word"></span></p>
-                </div> <!-- end of bottom content -->
-                <div>
-                    <span id="user-guess"></span>
-                </div>
-
-            </div> <!-- end of word guess container -->
+            <div class="topContent">
+                <p>Current Word:<span id="answer"></span></p>
+                <p>Wins:<span id="wins"></span></p>
+            </div> <!-- end top content -->
+            <div class="bottomContent">
+                <p>Letters Already Guessed:<span id="allGuesses"></span></p>
+                <p>Number of Guesses Remaining:<span id="attempts-left"></span></p>
+            </div> <!-- end of bottom content -->
+            <div>
+                <span id="user-guess"></span>
+            </div>
 
         </div> <!-- end of game container -->
 
     </div> <!-- end of body div -->
 
     <script type="text/javascript">
-        //* An array of acceptable characters
+
+        //* Declare arrays
         var alphabet = [
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
             'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
         ]
-
-        //* An Array of Words 
         var wordList = [
-            "Bobcaygeon",
-            "Gord",
-            "Poets",
-            "Machine",
-            "Kingston",
-            "Canadian",
-            "Rob",
-            "Johnny",
-            "Paul",
-            "Courage"
+            "BOBCAYGEON",
+            "GORD",
+            "POETS",
+            "MACHINE",
+            "KINGSTON",
+            "CANADIAN",
+            "ROB",
+            "JOHNNY",
+            "PAUL",
+            "COURAGE"
         ]
 
-        //* Generate random word from wordList array
+        //* Select random word from wordList array
         var selectedWord = Math.floor(Math.random()*10);
-        var currentWord = wordList[selectedWord];
-        console.log(currentWord);
-
-        //* Display blank spaces for word game
-        var wordLength = currentWord.length;
-        var wordBlanks = [wordLength];
-
-
-        //* Remaining guesses counter
-        var guessCounter = document.getElementById('remain-guess');
-
-        //* User guess
-
-        var userGuess = document.getElementById('user-guess');
-
+        var answerWord = wordList[selectedWord];
+        console.log(answerWord);   
+        
         //* User guess function
-
         document.onkeyup = function (event) {
-            console.log(event);
+            console.log(event.key);
+            for(var i = 0; i < alphabet.length; i++) {
+                if(alphabet[i] === event.key) {
+                    allGuesses.innerHTML += event.key;
+                }
+            }    
         };
+
     </script>
 </body>
 
