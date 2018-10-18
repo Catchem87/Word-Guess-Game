@@ -48,6 +48,11 @@
     </div> <!-- end of body div -->
 
     <script type="text/javascript">
+        //* An array of acceptable characters
+        var alphabet = [
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+            'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ]
 
         //* An Array of Words 
         var wordList = [
@@ -63,29 +68,28 @@
             "Courage"
         ]
 
+        //* Generate random word from wordList array
+        var selectedWord = Math.floor(Math.random()*10);
+        var currentWord = wordList[selectedWord];
+        console.log(currentWord);
+
+        //* Display blank spaces for word game
+        var wordLength = currentWord.length;
+        var wordBlanks = [wordLength];
+
+
         //* Remaining guesses counter
         var guessCounter = document.getElementById('remain-guess');
 
         //* User guess
-       
+
         var userGuess = document.getElementById('user-guess');
 
         //* User guess function
 
-        document.onkeyup = function(event) {
+        document.onkeyup = function (event) {
             console.log(event);
-            userGuess.innerHTML += event.key;
         };
-
-         document.addEventListener('onkeyup', myFunction);
-
-        function myFunction() {
-            document.getElementById('user-guess').innerHTML += event.key;
-        }
-
-  
-
-
     </script>
 </body>
 
