@@ -74,6 +74,23 @@
 
         var wordLength = answerWord.length;
         console.log(wordLength);
+
+        var wordDisplay = [wordLength];
+        var win = wordLength;
+        var displayOutput = "";
+
+        var setup = function() {
+            for(var i = 0; i < answerWord.length; i++) {
+                wordDisplay[i] = "_ ";
+                displayOutput = displayOutput + wordDisplay[i];
+            }
+            document.getElementById("answer").innerHTML = displayOutput;
+            displayOutput = "";
+        }
+
+        window.onload = function() {
+            setup();
+        }
         
         //* User guess function
         document.onkeyup = function (event) {
