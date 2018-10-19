@@ -68,6 +68,9 @@
         var selectedWord = Math.floor(Math.random()*10);
         var answerWord = wordList[selectedWord];
         console.log(answerWord);   
+
+        var letters = answerWord.split("");
+        console.log(letters);
         
         //* User guess function
         document.onkeyup = function (event) {
