@@ -62,9 +62,10 @@
             "PAUL",
             "COURAGE"
         ]
-
-        allUserLetters = [];
-        userLetters = [];
+        // Declarations
+        var userLetters = [];
+        var correctLetters = [];
+        var incorrectLetters = [];
 
         // * Set counter
         var counter = 10;
@@ -85,7 +86,6 @@
 
         //* Display blank spaces for word
         var wordDisplay = [wordLength];
-        var win = wordLength;
         var displayOutput = "";
 
         var setup = function () {
@@ -103,17 +103,19 @@
         }
 
         //* User guess function
-
-        document.onkeyup = function (event) {
+        document.addEventListener("keyup", function (event) {
             for (var i = 0; i < alphabet.length; i++) {
                 if (alphabet[i] === event.key) {
-                    var userKey = event.key.toUpperCase();
-                    allUserLetters.push(userKey);
+                    userKey = event.key.toUpperCase();
+                    userLetters.push(userKey);
                     console.log(userKey);
-                    allGuesses.innerHTML += userKey;
                 }
             }
-        };
+        });
+
+        
+
+
 
     </script>
 </body>
