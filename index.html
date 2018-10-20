@@ -29,7 +29,7 @@
     <div class="body">
         <div class="gameContainer">
             <div class="topContent">
-                <p>Current Word:<span id="answer"></span></p>
+                <p><span id="answer"></span></p>
                 <p>Wins:<span id="wins"></span></p>
             </div> <!-- end top content -->
             <div class="bottomContent">
@@ -45,7 +45,6 @@
     </div> <!-- end of body div -->
 
     <script type="text/javascript">
-
         //* Declare arrays
         var alphabet = [
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
@@ -64,23 +63,32 @@
             "COURAGE"
         ]
 
-        //* Select random word from wordList array
-        var selectedWord = Math.floor(Math.random()*10);
-        var answerWord = wordList[selectedWord];
-        console.log(answerWord);   
+        allUserLetters = [];
+        userLetters = [];
 
+        var counter = 10;
+        document.getElementById("attempts-left").innerHTML = " " + counter;
+
+        //* Select random word from wordList array
+        var selectedWord = Math.floor(Math.random() * 10);
+        var answerWord = wordList[selectedWord];
+        console.log(answerWord);
+
+        //* Split word into letters
         var letters = answerWord.split("");
         console.log(letters);
 
+        //* Console log number of letters in word
         var wordLength = answerWord.length;
         console.log(wordLength);
 
+        //* Display blank spaces for word
         var wordDisplay = [wordLength];
         var win = wordLength;
         var displayOutput = "";
 
-        var setup = function() {
-            for(var i = 0; i < answerWord.length; i++) {
+        var setup = function () {
+            for (var i = 0; i < answerWord.length; i++) {
                 wordDisplay[i] = "_ ";
                 displayOutput = displayOutput + wordDisplay[i];
             }
@@ -88,18 +96,22 @@
             displayOutput = "";
         }
 
-        window.onload = function() {
+        //* Run setup function written above
+        window.onload = function () {
             setup();
         }
-        
+
         //* User guess function
+
         document.onkeyup = function (event) {
-            console.log(event.key);
-            for(var i = 0; i < alphabet.length; i++) {
-                if(alphabet[i] === event.key) {
+            for (var i = 0; i < alphabet.length; i++) {
+                if (alphabet[i] === event.key) {
+                    var userKey = event.key;
+                    allUserLetters.push(userKey);
+                    console.log(userKey);
                     allGuesses.innerHTML += event.key;
                 }
-            }    
+            }
         };
 
     </script>

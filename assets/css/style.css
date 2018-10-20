@@ -23,16 +23,15 @@
     border: 1pt;
     text-align: center;
     font-size: 16pt;
+
 }
 .wordGuess {
     text-align: left;
     font-size: 15pt;
 }
 .topContent {
-    float: right;
     text-align: justify;
 }
 .bottomContent {
-    float: left;
     text-align: justify;
 }
