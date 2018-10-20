@@ -66,6 +66,7 @@
         allUserLetters = [];
         userLetters = [];
 
+        // * Set counter
         var counter = 10;
         document.getElementById("attempts-left").innerHTML = " " + counter;
 
@@ -106,10 +107,10 @@
         document.onkeyup = function (event) {
             for (var i = 0; i < alphabet.length; i++) {
                 if (alphabet[i] === event.key) {
-                    var userKey = event.key;
+                    var userKey = event.key.toUpperCase();
                     allUserLetters.push(userKey);
                     console.log(userKey);
-                    allGuesses.innerHTML += event.key;
+                    allGuesses.innerHTML += userKey;
                 }
             }
         };
