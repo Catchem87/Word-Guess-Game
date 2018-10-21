@@ -64,11 +64,14 @@
         ];
         // Declarations
         var userLetters = [];
+        var acceptedLetters = [];
         var correctLetters = [];
         var incorrectLetters = [];
+        var wins = "";
+
 
         // * Set counter
-        var counter = 10;
+        var counter = "10";
         document.getElementById("attempts-left").innerHTML = " " + counter;
 
         //* Select random word from wordList array
@@ -115,28 +118,35 @@
                     userLetters.push(userKey);
                     console.log(userKey);
                 }
-            }
-            console.log(userLetters);
-            if(userLetters.indexOf(userKey) === -1) {
-                correctLetters.push(userKey);
-            }
-            else{
-                console.log("double entry");
-            }
+            };
             for (var i = 0; i < letters.length; i++) {
                 if(letters[i] === userKey) {
                     wordDisplay[i] = letters[i];
-                }
-                else {
-                    console.log(userKey);
+                    correctLetters.push(userKey);
                 }
             };
                 display();
-        }; 
+        };
+
+        function incorrectGuess(event) {
+            for(var i = 0; i < letters.length; i++) {
+                if(letters[i] !== event.key) {
+                    var userKey = event.key.toUpperCase();
+                    incorrectLetters.push(userKey);
+                    allGuesses.innerHTML += userKey;
+                    counter --1;
+                }
+            };
+            display();
+        };
+        
+
+
 
         //* User guess function
         document.addEventListener("keyup", function (event) {
             checkAlpha(event);
+            incorrectGuess(event);
         });
 
     </script>
