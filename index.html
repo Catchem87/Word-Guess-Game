@@ -67,11 +67,12 @@
         var acceptedLetters = [];
         var correctLetters = [];
         var incorrectLetters = [];
-        var wins = "";
+        var wins = "0";
+        var userKey = "";
 
 
         // * Set counter
-        var counter = "10";
+        var counter = 10;
         document.getElementById("attempts-left").innerHTML = " " + counter;
 
         //* Select random word from wordList array
@@ -111,12 +112,13 @@
             setup();
         }
 
-        function checkAlpha(event) {
+        function checkLetter(event) {
             for (var i = 0; i < alphabet.length; i++) {
                 if (alphabet[i] === event.key) {
-                    var userKey = event.key.toUpperCase();
+                    userKey = event.key.toUpperCase();
                     userLetters.push(userKey);
                     console.log(userKey);
+                    allGuesses.innerHTML += userKey;
                 }
             };
             for (var i = 0; i < letters.length; i++) {
@@ -125,28 +127,17 @@
                     correctLetters.push(userKey);
                 }
             };
-                display();
+                if(letters[i] !== userKey) {
+                    counter--;
+                    document.getElementById("attempts-left").innerHTML = " " + counter;
+                };
+                display()
         };
 
-        function incorrectGuess(event) {
-            for(var i = 0; i < letters.length; i++) {
-                if(letters[i] !== event.key) {
-                    var userKey = event.key.toUpperCase();
-                    incorrectLetters.push(userKey);
-                    allGuesses.innerHTML += userKey;
-                    counter --1;
-                }
-            };
-            display();
-        };
         
-
-
-
         //* User guess function
         document.addEventListener("keyup", function (event) {
-            checkAlpha(event);
-            incorrectGuess(event);
+            checkLetter(event);
         });
 
     </script>
