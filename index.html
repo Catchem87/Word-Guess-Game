@@ -133,6 +133,22 @@
                     counter--;
                     document.getElementById("attempts-left").innerHTML = " " + counter;
                 };
+                if(correctLetters.length === letters.length) {
+                var youwin = confirm("YOU WIN!");
+                if(youwin == true) {
+                    setup();
+                    allGuesses.innerHTML = "";
+                    counter = 10;
+                    document.getElementById("attempts-left").innerHTML = " " + counter;
+                }
+                else {
+                    alert("Let's play again later!");
+                    setup();
+                    allGuesses.innerHTML = "";
+                    counter = 10;
+                    document.getElementById("attempts-left").innerHTML = " " + counter;
+                }
+            };
                 if(counter === 0) {
                     var gameover = confirm("GAME OVER!");
                     if (gameover == true) {
