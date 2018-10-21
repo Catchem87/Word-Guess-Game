@@ -88,7 +88,6 @@
         var wordDisplay = [wordLength];
         var displayOutput = "";
 
-
         function display() {
             for (var i = 0; i < wordDisplay.length; i++) {
                 displayOutput = displayOutput + wordDisplay[i];
@@ -128,10 +127,11 @@
                 if(letters[i] === userKey) {
                     wordDisplay[i] = letters[i];
                 }
+                else {
+                    console.log(userKey);
+                }
             };
-            
-
-            display();
+                display();
         }; 
 
         //* User guess function
