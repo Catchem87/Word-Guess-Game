@@ -134,7 +134,13 @@
                     document.getElementById("attempts-left").innerHTML = " " + counter;
                 };
                 if(counter === 0) {
-                    alert("GAME OVER!")
+                    var gameover = confirm("GAME OVER!");
+                    if ( gameover == true) {
+                        setup();
+                        allGuesses.innerHTML = "";
+                        counter = 10;
+                        document.getElementById("attempts-left").innerHTML = " " + counter;
+                    }
                 };
                 display()
             };
