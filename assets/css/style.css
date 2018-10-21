@@ -18,8 +18,14 @@
 .card {
     position: absolute;
     font-family: 'Rock Salt', cursive;
-    margin-right: 10%;
-    margin-left: 10%;
+    margin: 5% 10% 5% 10%;
+    font-size: 16pt;
+}
+#answer-display {
+    text-align: center;
+    font-size: 24pt;
+}
+#user-guesses {
     text-align: justify;
     font-size: 16pt;
 }

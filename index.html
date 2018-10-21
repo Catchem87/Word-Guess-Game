@@ -34,12 +34,12 @@
     </div> <!-- end of header div -->
 
     <div class="body">
-        <div class="card">
+        <div class="card bg-light border-dark mb-3">
             <div class="card-body">
-                <p><span id="answer"></span></p>
-                <p>Wins:<span id="wins"></span></p>
-                <p>Letters Already Guessed:<span id="allGuesses"></span></p>
-                <p>Number of Guesses Remaining:<span id="attempts-left"></span></p>
+                <p id="answer-display"><span id="answer"></span></p>
+                <p id="user-guesses">Letters Already Guessed:<span id="allGuesses"></span></p>
+                <p id="life-counter">Number of Guesses Remaining:<span id="attempts-left"></span></p>
+                <p id="win-count">Wins: You've won <span id="wins"></span> games!</p>
             </div> <!-- end of card body -->
         <div> <!-- end of card -->
     </div> <!-- end of body div -->
@@ -67,9 +67,11 @@
         var acceptedLetters = [];
         var correctLetters = [];
         var incorrectLetters = [];
-        var wins = "0";
         var userKey = "";
 
+        // * Set wins
+        var wins = 0;
+        document.getElementById("wins").innerHTML = " " + wins;
 
         // * Set counter
         var counter = 10;
@@ -131,8 +133,11 @@
                     counter--;
                     document.getElementById("attempts-left").innerHTML = " " + counter;
                 };
+                if(counter === 0) {
+                    alert("GAME OVER!")
+                };
                 display()
-        };
+            };
 
         
         //* User guess function
