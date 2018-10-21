@@ -15,15 +15,13 @@
     text-align: center;
     margin-top: 7%;
 }
-.gameContainer {
+.card {
+    position: absolute;
     font-family: 'Rock Salt', cursive;
-    margin-bottom: 2%;
-    padding-left: 15%;
-    padding-right: 15%;
-    border: 1pt;
-    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
+    text-align: justify;
     font-size: 16pt;
-
 }
 .wordGuess {
     text-align: left;
